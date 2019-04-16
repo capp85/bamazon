@@ -10,10 +10,12 @@ To create this, you'll need to download the following node packages:
 ## Try It Yourself
 
 1.Open up Your terminal.
+
 2.Navigate to the folder that contains the bamazonCustomer.js file.
 ![start](images/IMG1.png)
 
 3.Node then displays the list of items in the databse.
+
 4.Select which item you'd like to buy.
 
 ![Enter](images/IMG2.png)
