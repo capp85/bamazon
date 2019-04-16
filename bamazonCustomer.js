@@ -16,15 +16,16 @@ var connection = mysql.createConnection({
     // Your password
     password: "root",
     database: "bamazonDB"
-  });
-  connection.connect(function(err) {
+});
+
+connection.connect(function(err) {
     if (err) throw err;
     console.log()
     console.log("========**BAMAZON**========");
     console.log("");
     showProducts();
 
-  });
+});
 
 function showProducts() {
     connection.query("SELECT * FROM products", function(err, res){
@@ -32,11 +33,11 @@ function showProducts() {
         
         for (var i = 0; i < res.length; i++) {
         console.log(`${res[i].item_id} | ${res[i].product_name} | ${res[i].department_name} | ${res[i].price} | ${res[i].stock_quantity}`);
-    }
+        }
 
-    askProducts();
+        askProducts();
 
-});
+    });
 };
 
 function askProducts() {
@@ -81,6 +82,7 @@ function askProducts() {
     var newItemQuantity = (res[0].stock_quantity) - (itemQuantity_selected);
     var itemName_selected = res[0].product_name;
     var subTotal = (itemQuantity_selected * res[0].price).toFixed(2);
+    
     connection.query(
         "UPDATE products SET ? WHERE ?",
         [
